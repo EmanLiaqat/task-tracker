@@ -1,7 +1,5 @@
-// ========================================
-// 1. SELECT ELEMENTS FROM HTML
-// ========================================
 
+// 1. SELECT ELEMENTS FROM HTML
 const totalTasks = document.getElementById("totalTasks");
 const completedTasks = document.getElementById("completedTasks");
 const pendingTasks = document.getElementById("pendingTasks");
@@ -10,22 +8,14 @@ const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
-
-// ========================================
 // 2. CHECK SELECTED ELEMENTS
-// ========================================
-
 console.log(totalTasks);
 console.log(completedTasks);
 console.log(pendingTasks);
 console.log(taskForm);
 console.log(taskInput);
 console.log(taskList);
-
-
-// ========================================
 // 3. UPDATE TASK SUMMARY
-// ========================================
 
 function updateTaskSummary() {
 
@@ -40,14 +30,11 @@ function updateTaskSummary() {
     pendingTasks.textContent = tasks.length - completed.length;
 }
 
-
 // Run when page loads
 updateTaskSummary();
 
-
-// ========================================
 // 4. CHECKBOX FUNCTIONALITY
-// ========================================
+
 
 const checkboxes = document.querySelectorAll(".task-checkbox");
 
@@ -70,10 +57,7 @@ checkboxes.forEach(function(checkbox) {
     });
 });
 
-
-// ========================================
 // 5. ADD NEW TASK
-// ========================================
 
 taskForm.addEventListener("submit", function(event) {
 
@@ -164,10 +148,7 @@ taskForm.addEventListener("submit", function(event) {
     updateTaskSummary();
 });
 
-
-// ========================================
 // 6. DELETE EXISTING TASKS
-// ========================================
 
 const deleteButtons = document.querySelectorAll(".delete-btn");
 
@@ -182,3 +163,43 @@ deleteButtons.forEach(function(button) {
         updateTaskSummary();
     });
 });
+
+// Daily Motivation API
+
+const quoteElement = document.getElementById("quote");
+
+
+// Fetch quote from REST API
+async function getQuote() {
+
+    try {
+
+        const response = await fetch(
+            "https://dummyjson.com/quotes/random"
+        );
+
+        // Check if request was successful
+        if (!response.ok) {
+            throw new Error("Failed to fetch quote");
+        }
+
+        // Convert response to JSON
+        const data = await response.json();
+
+        // Display quote on webpage
+        quoteElement.textContent =
+            `"${data.quote}" — ${data.author}`;
+
+    } catch (error) {
+
+        console.error("Error:", error);
+
+        quoteElement.textContent =
+            "Unable to load today's motivation.";
+
+    }
+}
+
+
+// Call the function
+getQuote();
