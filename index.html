@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Task Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+
+    <nav class="navigation">
+
+         <a href="#" class="logo">
+            <img src="logo.png" alt="Task Tracker logo">
+            <span>Task Tracker</span>
+        </a>
+
+        <span>User</span>
+
+    </nav>
+
+</header>
+<!-- Intro -->
+ <section class="intro">
+    <h1> Stay Organized, Stay Productive</h1>
+    <p>Plan your tasks, stay organized, and get things done.</p>
+ </section>
+
+
+<!-- Main Content -->
+<main class="container">
+
+    <!-- Task Summary -->
+    <section class="summary" aria-labelledby="summary-heading">
+
+        <h2 id="summary-heading">Task Progress</h2>
+         <div class="summary-cards">
+
+        <article class="summary-card">
+            <h3>Total Tasks</h3>
+            <p id="totalTasks">0</p>
+        </article>
+
+        <article class="summary-card">
+            <h3>Completed</h3>
+            <p id="completedTasks">0</p>
+        </article>
+
+        <article class="summary-card">
+            <h3>Pending</h3>
+            <p id="pendingTasks">0</p>
+        </article>
+        </div>
+
+    </section>
+
+
+    <!-- Add Task -->
+    <section class="add-task" aria-labelledby="add-task-heading">
+
+        <h2 id="add-task-heading">Add New Task</h2>
+
+        <form id="taskForm">
+
+            <label for="taskInput">Task</label>
+
+            <input
+                type="text"
+                id="taskInput"
+                name="task"
+                placeholder="Enter your task"
+                required
+            >
+
+            <button type="submit">Add Task</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Task List -->
+    <section class="tasks" aria-labelledby="tasks-heading">
+
+        <header class="tasks-header">
+
+            <h2 id="tasks-heading">My Tasks</h2>
+
+        </header>
+
+
+        <ul id="taskList">
+
+            <!-- Task 1 -->
+            <li>
+
+                <article class="task">
+
+                    <input
+                        type="checkbox"
+                        class="task-checkbox"
+                        id="task1"
+                    >
+
+                    <label for="task1">
+                        Complete JavaScript assignment
+                    </label>
+
+                    <button
+                        type="button"
+                        class="delete-btn"
+                        aria-label="Delete Complete JavaScript assignment"
+                    >
+                        🗑
+                    </button>
+
+                </article>
+
+            </li>
+
+
+            <!-- Task 2 -->
+            <li>
+
+                <article class="task completed">
+
+                    <input
+                        type="checkbox"
+                        class="task-checkbox"
+                        id="task2"
+                        checked
+                    >
+
+                    <label for="task2">
+                        Practice CSS Flexbox
+                    </label>
+
+                    <button
+                        type="button"
+                        class="delete-btn"
+                        aria-label="Delete Practice CSS Flexbox"
+                    >
+                        🗑
+                    </button>
+
+                </article>
+
+            </li>
+
+
+            <!-- Task 3 -->
+            <li>
+
+                <article class="task">
+
+                    <input
+                        type="checkbox"
+                        class="task-checkbox"
+                        id="task3"
+                    >
+
+                    <label for="task3">
+                        Build REST API integration
+                    </label>
+
+                    <button
+                        type="button"
+                        class="delete-btn"
+                        aria-label="Delete Build REST API integration"
+                    >
+                        🗑
+                    </button>
+
+                </article>
+
+            </li>
+
+
+            <!-- Task 4 -->
+            <li>
+
+                <article class="task">
+
+                    <input
+                        type="checkbox"
+                        class="task-checkbox"
+                        id="task4"
+                    >
+
+                    <label for="task4">
+                        Submit internship task
+                    </label>
+
+                    <button
+                        type="button"
+                        class="delete-btn"
+                        aria-label="Delete Submit internship task"
+                    >
+                        🗑
+                    </button>
+
+                </article>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- API / Daily Motivation -->
+    <aside
+        class="motivation"
+        aria-labelledby="motivation-heading"
+    >
+
+        <h2 id="motivation-heading">
+            Daily Motivation
+        </h2>
+
+        <p id="quote">
+            Daily productivity quote
+        </p>
+
+        <small>
+            Powered by live REST API
+        </small>
+
+    </aside>
+
+</main>
+
+
+<!-- Footer -->
+<footer>
+
+    <p>
+        @2026 Task Tracker
+    </p>
+    
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+/*Basic Reset*/
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+/*page*/
+body{
+   font-family: Arial, sans-serif;
+    background-color: #6eb09a;
+    color: #012820;
+    line-height: 1.6;
+}
+/*header*/
+.header
+{
+     background-color: #285c4f;
+    border-bottom: 1px solid #b28b8b;
+   
+
+
+}
+/* Intro */
+.intro
+{
+    max-width: 1100px;
+    margin: 35px auto 10px;
+    padding:0 20px;
+    text-align: center;
+
+}
+.intro h1{
+    margin-bottom: 5px;
+    font-size: 28px;
+    color: #090707;
+}
+
+.intro p
+{
+    color:#6b4646;
+    font-size: 16px;
+}
+/*navigation*/
+.navigation
+{
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #090707;
+
+}
+/*Logo*/
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: #090707;
+    font-size: 30px;
+    font-weight: bold;
+}
+/* Main container */
+.container
+{
+    max-width: 1100px;
+    margin: 30px auto;
+    padding:0 20px;
+
+}
+/* Section headings */
+h2
+{
+    margin-bottom:15px;
+}
+.summary-cards
+{
+display:grid;
+grid-template-columns: repeat(3, 1fr);
+gap:20px;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+.summary-card
+{
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.add-task
+{
+    background-color: white;
+    padding:20px;
+    border:1px solid #dadfdf;
+    margin-top: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #090707;
+    font-weight: bold;
+    
+}
+#taskForm
+{
+    display:flex;
+    gap:10px;
+    align-items: center;
+}
+
+#taskInput
+{
+    width: 300px;
+    padding: 10px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+}
+#taskForm button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #024c3d;
+}
+#taskList
+{
+    list-style: none;
+    margin-top: 15px;
+}
+.task
+{
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.delete-btn {
+    margin-left: auto;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.motivation {
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.motivation p {
+    margin-bottom: 8px;
+}
+
+.motivation small {
+    color: #777;
+}
+footer
+{
+    background-color: #285c4f;
+    color: black;
+    font-size: medium;
+    height: 50px;
+    text-align: center;
+    
+}
+
+.task.completed label {
+    text-decoration: line-through;
+    color: #888;
+}
+#taskInput:focus {
+    outline: none;
+    border-color: #024c3d;
+}
+#taskForm button:hover
+{
+     background-color: #01382d;
+}
+/* Tablet */
+@media (max-width:768px)
+{
+    .summary-cards
+{
+    grid-template-columns:repeat(2,1fr);
+}
+.container
+{
+    padding: 0 15px;
+
+}
+.navigation
+{
+    padding: 15px;
+}
+}
+/* Mobile */
+@media (max-width:480px) {
+    .summary-cards
+    {
+        grid-template-columns: 1fr;
+
+    }
+    .container
+    {
+        padding: 0 15px;
+    }
+    .intro
+    {
+        padding: 0 15px;
+        margin-top:25px;
+    
+    
+}
+.intro h1
+{
+font-size: 24px;
+}
+#taskForm
+{
+    flex-direction: column;
+    align-items: stretch;
+}
+#taskInput
+{
+    width:100%;
+}
+#taskForm button
+{
+    width: 100%;
+}
+.logo
+{
+    font-size: 22px;
+}
+}
