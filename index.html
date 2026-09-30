@@ -7,6 +7,9 @@
 
     <title>Task Tracker</title>
 
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,7 +21,7 @@
         <nav class="navigation">
 
             <a href="#" class="logo">
-                <img src="logo.png" alt="Task Tracker logo">
+                <i class="fas fa-clipboard-list"></i>
                 <span>Task Tracker</span>
             </a>
 
@@ -46,66 +49,118 @@
     <!-- ================= MAIN ================= -->
     <main class="container">
 
+        <!-- ================= SUMMARY + WEATHER ROW ================= -->
+        <div class="summary-weather-row">
 
-        <!-- ================= TASK PROGRESS ================= -->
-        <section class="summary" aria-labelledby="summary-heading">
+            <!-- ============ TASK PROGRESS ============ -->
+            <section class="summary" aria-labelledby="summary-heading">
 
-            <h2 id="summary-heading">
-                Task Progress
-            </h2>
+                <h2 id="summary-heading">
+                    Task Progress
+                </h2>
 
-            <div class="summary-cards">
+                <div class="summary-cards">
 
-                <!-- Total -->
-                <article class="summary-card total-card">
+                    <!-- Total -->
+                    <article class="summary-card total-card">
 
-                    <div class="card-icon">
-                        ✓
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+
+                        <div>
+                            <h3>Total Tasks</h3>
+                            <p id="totalTasks">4</p>
+                            <small>All tasks you've added</small>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Completed -->
+                    <article class="summary-card completed-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+
+                        <div>
+                            <h3>Completed</h3>
+                            <p id="completedTasks">1</p>
+                            <small>Tasks you've finished</small>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Pending -->
+                    <article class="summary-card pending-card">
+
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <h3>Pending</h3>
+                            <p id="pendingTasks">3</p>
+                            <small>Tasks still in progress</small>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ============ WEATHER WIDGET ============ -->
+            <section class="weather-widget" aria-label="Weather information">
+
+                <div>
+                    <div class="weather-header">
+
+                        <div class="weather-city">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="weatherCityDisplay">Lahore</span>
+                        </div>
+
+                        <div class="weather-temp" id="weatherTemp">--°C</div>
+
                     </div>
 
-                    <div>
-                        <h3>Total Tasks</h3>
-                        <p id="totalTasks">4</p>
-                        <small>All tasks you've added</small>
+                    <div class="weather-condition">
+                        <i class="fas fa-cloud-sun" id="weatherIcon"></i>
+                        <span id="weatherCondition">Loading...</span>
                     </div>
 
-                </article>
+                    <div class="weather-details">
+                        <span><i class="fas fa-tint"></i> <span id="humidity">--%</span></span>
+                        <span><i class="fas fa-wind"></i> <span id="wind">-- km/h</span></span>
+                        <span><i class="fas fa-thermometer-half"></i> Feels <span id="feelsLike">--°</span></span>
+                    </div>
+                </div>
 
+                <!-- Searchable city input -->
+                <div class="weather-search">
 
-                <!-- Completed -->
-                <article class="summary-card completed-card">
-
-                    <div class="card-icon">
-                        ✓
+                    <div class="search-input-wrap">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="cityInput" placeholder="Search any city..." autocomplete="off"
+                            aria-label="Search city for weather">
                     </div>
 
-                    <div>
-                        <h3>Completed</h3>
-                        <p id="completedTasks">1</p>
-                        <small>Tasks you've finished</small>
-                    </div>
+                    <button id="searchWeatherBtn" aria-label="Get weather">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
 
-                </article>
+                    <!-- Suggestion dropdown -->
+                    <ul id="citySuggestions" class="city-suggestions" role="listbox"></ul>
 
+                </div>
 
-                <!-- Pending -->
-                <article class="summary-card pending-card">
-
-                    <div class="card-icon">
-                        ◷
-                    </div>
-
-                    <div>
-                        <h3>Pending</h3>
-                        <p id="pendingTasks">3</p>
-                        <small>Tasks still in progress</small>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
+            </section>
+        </div>
 
 
         <!-- ================= ADD TASK ================= -->
@@ -113,7 +168,9 @@
 
             <div class="section-title">
 
-                <span class="title-icon">+</span>
+                <span class="title-icon">
+                    <i class="fas fa-plus"></i>
+                </span>
 
                 <h2 id="add-task-heading">
                     Add New Task
@@ -136,7 +193,7 @@
 
 
                 <button type="submit" class="add-btn">
-                    <span>+</span>
+                    <i class="fas fa-plus-circle"></i>
                     Add Task
                 </button>
 
@@ -152,7 +209,9 @@
 
                 <div class="section-title">
 
-                    <span class="title-icon">☷</span>
+                    <span class="title-icon">
+                        <i class="fas fa-list"></i>
+                    </span>
 
                     <h2 id="tasks-heading">
                         My Tasks
@@ -184,136 +243,91 @@
             <!-- Task List -->
             <ul id="taskList">
 
-
                 <!-- TASK 1 -->
                 <li>
-
                     <article class="task">
-
                         <div class="task-left">
-
                             <input type="checkbox" class="task-checkbox" id="task1">
-
                             <label for="task1">
                                 Complete JavaScript assignment
                             </label>
-
                         </div>
-
 
                         <div class="task-actions">
-
                             <button type="button" class="edit-btn" aria-label="Edit Complete JavaScript assignment">
-                                ✎ Edit
+                                <i class="fas fa-pen"></i> Edit
                             </button>
-
                             <button type="button" class="delete-btn" aria-label="Delete Complete JavaScript assignment">
-                                Delete
+                                <i class="fas fa-trash"></i> Delete
                             </button>
-
                         </div>
-
                     </article>
-
                 </li>
 
 
                 <!-- TASK 2 -->
                 <li>
-
                     <article class="task completed">
-
                         <div class="task-left">
-
                             <input type="checkbox" class="task-checkbox" id="task2" checked>
-
                             <label for="task2">
                                 Practice CSS Flexbox
                             </label>
-
                         </div>
-
 
                         <div class="task-actions">
-
                             <button type="button" class="edit-btn" aria-label="Edit Practice CSS Flexbox">
-                                ✎ Edit
+                                <i class="fas fa-pen"></i> Edit
                             </button>
-
                             <button type="button" class="delete-btn" aria-label="Delete Practice CSS Flexbox">
-                                Delete
+                                <i class="fas fa-trash"></i> Delete
                             </button>
-
                         </div>
-
                     </article>
-
                 </li>
 
 
                 <!-- TASK 3 -->
                 <li>
-
                     <article class="task">
-
                         <div class="task-left">
-
                             <input type="checkbox" class="task-checkbox" id="task3">
-
                             <label for="task3">
                                 Build REST API integration
                             </label>
-
                         </div>
-
 
                         <div class="task-actions">
-
                             <button type="button" class="edit-btn" aria-label="Edit Build REST API integration">
-                                ✎ Edit
+                                <i class="fas fa-pen"></i> Edit
                             </button>
-
                             <button type="button" class="delete-btn" aria-label="Delete Build REST API integration">
-                                Delete
+                                <i class="fas fa-trash"></i> Delete
                             </button>
-
                         </div>
-
                     </article>
-
                 </li>
 
 
                 <!-- TASK 4 -->
                 <li>
-
                     <article class="task">
-
                         <div class="task-left">
-
                             <input type="checkbox" class="task-checkbox" id="task4">
-
                             <label for="task4">
                                 Submit internship task
                             </label>
-
                         </div>
-
 
                         <div class="task-actions">
-
                             <button type="button" class="edit-btn" aria-label="Edit Submit internship task">
-                                ✎ Edit
+                                <i class="fas fa-pen"></i> Edit
                             </button>
-
                             <button type="button" class="delete-btn" aria-label="Delete Submit internship task">
-                                Delete
+                                <i class="fas fa-trash"></i> Delete
                             </button>
-
                         </div>
-
                     </article>
-
                 </li>
 
             </ul>
@@ -336,7 +350,7 @@
                     </h2>
 
                     <button type="button" id="refreshQuote" class="refresh-btn" aria-label="Get a new motivation quote">
-                        ↻
+                        <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
 
@@ -345,13 +359,12 @@
                 </p>
 
                 <small>
-                    Powered by live REST API
+                    <i class="fas fa-cloud-upload-alt"></i> Powered by live REST API
                 </small>
 
             </div>
 
         </aside>
-
 
     </main>
 
